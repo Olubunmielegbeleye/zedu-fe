@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 
 interface GuideResourceProps {
   id: number;
@@ -32,9 +32,16 @@ export const GuideResourceCard = ({
       </div>
 
       <div className="flex flex-col flex-grow p-4 gap-4">
-        <span className="inline-block w-fit text-xs font-medium p-2 rounded-full bg-primary-50/50 text-primary-500">
-          Guide
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="inline-block w-fit text-xs font-medium p-2 rounded-full bg-primary-50/50 text-primary-500">
+            Guide
+          </span>
+          {link === "#" && (
+            <span className="inline-block w-fit text-xs font-medium p-2 rounded-full bg-amber-100 text-amber-800">
+              Coming soon
+            </span>
+          )}
+        </div>
 
         <div className="space-y-3">
           <h3 className="text-base font-semibold text-neutral-900 mb-2 line-clamp-2">
@@ -46,8 +53,9 @@ export const GuideResourceCard = ({
         </div>
 
         {link === "#" ? (
-          <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 mt-3">
-            Coming soon
+          <span className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 mt-3">
+            <Clock size={16} aria-hidden="true" />
+            Article coming soon
           </span>
         ) : (
           <Link

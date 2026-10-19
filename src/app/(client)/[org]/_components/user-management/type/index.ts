@@ -47,6 +47,10 @@ export type Member = {
   entity_type: "bot" | "user";
   is_deactivated?: boolean;
   is_restricted?: boolean;
+  profile?: {
+    name?: string;
+    [key: string]: any;
+  };
 };
 
 export type MembersProps = {
